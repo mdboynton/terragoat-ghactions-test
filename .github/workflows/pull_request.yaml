@@ -16,3 +16,4 @@ jobs:
           PRISMA_API_URL: https://api.prismacloud.io
         with:
           api-key: ${{ secrets.BC_API_KEY }}
+          external_checks_repos: https://github.com/mdboynton/external-checks-test

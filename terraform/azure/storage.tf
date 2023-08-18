@@ -22,7 +22,7 @@ resource "azurerm_managed_disk" "example" {
 
 resource "azurerm_storage_account" "example" {
   #name                     = "tgsa${var.environment}${random_integer.rnd_int.result}"
-  name                     = "thisshouldfail-"
+  name                     = "${var.fail_name}"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"

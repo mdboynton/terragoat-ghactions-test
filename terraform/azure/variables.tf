@@ -13,3 +13,8 @@ variable "environment" {
   default     = "dev"
   description = "Must be all lowercase letters or numbers"
 }
+
+variable "fail_name" {
+  type    = string
+  default = "thisshouldfail-"
+}

@@ -26,7 +26,7 @@ resource "azurerm_mssql_server" "test_ad_login_server" {
   azuread_administrator {
     login_username              = "user1"
     object_id                   = "object1"
-    azuread_authentication_only = false
+    azuread_authentication_only = true
   }
 }
 

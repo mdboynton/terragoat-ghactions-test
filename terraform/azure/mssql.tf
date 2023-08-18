@@ -17,6 +17,19 @@ resource "azurerm_storage_account" "security_storage_account" {
   }
 }
 
+resource "azurerm_mssql_server" "test_ad_login_server" {
+  name                = "terragoat-test-${var.environment}${random_integer.rnd_int.result}"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  version             = "12.0"
+
+  azuread_administrator {
+    login_username              = "user1"
+    object_id                   = "object1"
+    azuread_authentication_only = false
+  }
+}
+
 resource "azurerm_mssql_server" "mssql1" {
   name                         = "terragoat-mssql1-${var.environment}${random_integer.rnd_int.result}"
   resource_group_name          = azurerm_resource_group.example.name
